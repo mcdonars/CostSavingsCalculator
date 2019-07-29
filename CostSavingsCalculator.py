@@ -1,11 +1,21 @@
+"""
+ NOTES: 
+    Deductions reduce state and federal taxes only on Traditional 401k and IRA
+    No deductions on ROTH 401k and ROTH IRA (Deductions when withdrawn)
+    SS and Medicare are not deductable
+    401K - Max contribution = 18,500  (Both Traditional and ROTH total)
+    IRA - Max contribution = 6,000    (Both Traditional and ROTH total)
+
+
+"""
+
+
 # Gather user data
 YearlyIncome = int(input("Please enter your yearly income:" ))
 MonthlyExpenses = int(input("Please enter your monthly expenses: "))
 MonthyContributions = int(input("Please enter your monthly contributions: "))
 
 # Subtract Contributions
-
-# TaxableIncome = YearlyIncome - Contrib
 TaxableIncome = YearlyIncome - (MonthyContributions * 12)
 
 # Subtract Federal Taxes
