@@ -6,6 +6,7 @@
     401K - Max contribution = 18,500  (Both Traditional and ROTH total)
     IRA - Max contribution = 6,000    (Both Traditional and ROTH total)
 
+Integrated checking for 401k and IRA, need to check for Traditional/ROTH next
 
 """
 
@@ -13,7 +14,25 @@
 # Gather user data
 YearlyIncome = int(input("Please enter your yearly income:" ))
 MonthlyExpenses = int(input("Please enter your monthly expenses: "))
-MonthyContributions = int(input("Please enter your monthly contributions: "))
+
+# do error checking for above contrib amounts
+UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
+if ((UserContributes == "Y") or (UserContributes == "y")):
+    boolContinue = False
+    while (boolContinue == False):
+        Contrib401k = int(input("Please enter your monthly 401k contributions: "))
+        ContribIRA = int(input("Please enter your monthly IRA contributions: "))
+        if ((Contrib401k <= 18500) and (ContribIRA <=6000)):
+            boolContinue = True
+        else:
+            boolContinue = False
+            print("Maximum yearly contribution for 401K is 18,500 and IRA  is 6,000")
+            
+else:
+    pass
+
+MonthyContributions = Contrib401k + ContribIRA
+
 
 # Subtract Contributions
 TaxableIncome = YearlyIncome - (MonthyContributions * 12)
