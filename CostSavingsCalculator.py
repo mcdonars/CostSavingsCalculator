@@ -20,9 +20,13 @@ UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
 if ((UserContributes == "Y") or (UserContributes == "y")):
     boolContinue = False
     while (boolContinue == False):
-        Contrib401k = int(input("Please enter your monthly 401k contributions: "))
-        ContribIRA = int(input("Please enter your monthly IRA contributions: "))
-        if ((Contrib401k <= 18500) and (ContribIRA <=6000)):
+        ContribT401k = int(input("Please enter your monthly Traditional 401k contributions: "))
+        ContribTIRA = int(input("Please enter your monthly Traditional IRA contributions: "))
+        ContribR401k = int(input("Please enter your monthly ROTH 401k contributions: "))
+        ContribRIRA = int(input("Please enter your monthly ROTH IRA contributions: "))
+
+        
+        if ((ContribT401k + ContribR401k <= 18500) and (ContribTIRA + ContribRIRA <=6000)):
             boolContinue = True
         else:
             boolContinue = False
@@ -31,11 +35,11 @@ if ((UserContributes == "Y") or (UserContributes == "y")):
 else:
     pass
 
-MonthyContributions = Contrib401k + ContribIRA
-
+MonthyContributions = ContribT401k + ContribR401k + ContribTIRA + ContribRIRA
+MonthyContributionsTD = ContribT401k + ContribTIRA
 
 # Subtract Contributions
-TaxableIncome = YearlyIncome - (MonthyContributions * 12)
+TaxableIncome = YearlyIncome - (MonthyContributionsTD * 12)
 
 # Subtract Federal Taxes
 def Fed_Taxes(TaxableIncome):
@@ -78,7 +82,8 @@ YearlySavings = EarningsAT - YearlyExpenses
 print("Your yearly savings after taxes are: ")
 print(YearlySavings)
 
-
+print("Your yearly retirement savings are: ")
+print(MonthyContributions * 12)
 
 
 # def User_Expense():
