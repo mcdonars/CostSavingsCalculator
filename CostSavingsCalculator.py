@@ -15,6 +15,20 @@ Integrated checking for 401k and IRA, need to check for Traditional/ROTH next
 YearlyIncome = int(input("Please enter your yearly income:" ))
 MonthlyExpenses = int(input("Please enter your monthly expenses: "))
 
+
+'''
+Psuedocode for entering more than one expense (function)
+1. Ask for if user has expenses
+2. User enters expense
+3. Expense is entered into array. (objects?)
+4. Loop 1-3
+5. User finally enters no, exit loop
+6. Sums all expenses, at the end displays expense total to the user.
+
+'''
+
+
+
 # do error checking for above contrib amounts
 UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
 if ((UserContributes == "Y") or (UserContributes == "y")):
