@@ -25,6 +25,18 @@ Psuedocode for entering more than one expense (function)
 5. User finally enters no, exit loop
 6. Sums all expenses, at the end displays expense total to the user.
 
+
+Adding state taxes
+ Add a new function, takes in a variable (income)
+ applies tax rate through brackets (with contribution deductions)
+ sums up total state taxes
+ prints total state taxes
+
+Adding SS/Medicare
+ Add a new function, takes in a variable (income)
+ applies tax rate and prints taxes for each
+
+Add state and SS/medicare to total taxes variable
 '''
 
 
