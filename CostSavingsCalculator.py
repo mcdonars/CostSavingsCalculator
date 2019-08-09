@@ -32,11 +32,6 @@ Adding state taxes
  sums up total state taxes
  prints total state taxes
 
-Adding SS/Medicare
- Add a new function, takes in a variable (income)
- applies tax rate and prints taxes for each
-
-Add state and SS/medicare to total taxes variable
 '''
 
 
@@ -94,11 +89,25 @@ def Fed_Taxes(TaxableIncome):
             # T1 = (9525 - 0) = 9525 * 0.10
             # TaxesTotal = T1+T2+T3
 
-UserPaidTaxes = Fed_Taxes(TaxableIncome)
+
+def SS_Med_Taxes(YearlyIncome):
+    # Tax Rates:
+    SS_TR = 0.062
+    Med_TR = 0.0145
+    Total_SS_Med_Taxes = (YearlyIncome * SS_TR) + (YearlyIncome * Med_TR)
+
+    return Total_SS_Med_Taxes
+
+
+UserPaidTaxes = Fed_Taxes(TaxableIncome) + SS_Med_Taxes(YearlyIncome)
 EarningsAT = TaxableIncome - UserPaidTaxes
 
 print("Your yearly taxes are: ")
 print(UserPaidTaxes)
+
+print("Your yearly SS/Med taxes are: ")
+print(SS_Med_Taxes(YearlyIncome))
+
 
 YearlyExpenses = MonthlyExpenses * 12
 print("Your yearly expenses are: " )
