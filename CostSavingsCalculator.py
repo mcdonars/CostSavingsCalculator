@@ -32,6 +32,7 @@ Adding state taxes
  sums up total state taxes
  prints total state taxes
 
+
 '''
 
 
@@ -90,6 +91,42 @@ def Fed_Taxes(TaxableIncome):
             # TaxesTotal = T1+T2+T3
 
 
+'''
+
+Adding state taxes
+ Add a new function, takes in a variable (income)
+ applies tax rate through brackets (with contribution deductions)
+ sums up total state taxes
+ prints total state taxes
+
+'''
+def State_Taxes(TaxableIncome):
+    S_MTB1 = 3000
+    S_MTB2 = 5000
+    S_MTB3 = 17000
+    S_MTB4 = TaxableIncome - S_MTB3
+    # Tax rates per tax bracket
+    S_TRB1 = 0.02
+    S_TRB2 = 0.03
+    S_TRB3 = 0.05
+    S_TRB4 = 0.0575
+
+    if (TaxableIncome >= 0) and (TaxableIncome <= S_MTB1):
+        S_T1 = (TaxableIncome * S_TRB1)
+        return S_T1
+    elif (TaxableIncome >= S_MTB1) and (TaxableIncome <= S_MTB2):
+        S_T2 = (TaxableIncome - S_MTB1) * S_TRB2
+        return S_T2 + (S_MTB2 * S_TRB1)
+    elif (TaxableIncome >= S_MTB2) and (TaxableIncome <= S_TRB3):
+        S_T3 = (TaxableIncome - S_MTB2) * S_TRB3
+        return S_T3 + (S_MTB2 * S_TRB2) + (S_MTB1 * S_TRB1)
+    elif (TaxableIncome >= S_MTB3):
+        S_T4 = (TaxableIncome - S_MTB3) * S_TRB4
+        return S_T4 + (S_MTB3 * S_TRB3) + (S_MTB2 * S_TRB2) + (S_MTB1 * S_TRB1) 
+
+
+
+
 def SS_Med_Taxes(YearlyIncome):
     # Tax Rates:
     SS_TR = 0.062
@@ -99,7 +136,7 @@ def SS_Med_Taxes(YearlyIncome):
     return Total_SS_Med_Taxes
 
 
-UserPaidTaxes = Fed_Taxes(TaxableIncome) + SS_Med_Taxes(YearlyIncome)
+UserPaidTaxes = Fed_Taxes(TaxableIncome) + SS_Med_Taxes(YearlyIncome) + State_Taxes(TaxableIncome)
 EarningsAT = TaxableIncome - UserPaidTaxes
 
 print("Your yearly taxes are: ")
@@ -107,6 +144,9 @@ print(UserPaidTaxes)
 
 print("Your yearly SS/Med taxes are: ")
 print(SS_Med_Taxes(YearlyIncome))
+
+print("Your yearly State taxes are: ")
+print(State_Taxes(YearlyIncome))
 
 
 YearlyExpenses = MonthlyExpenses * 12
