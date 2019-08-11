@@ -7,9 +7,7 @@
     IRA - Max contribution = 6,000    (Both Traditional and ROTH total)
 
 Integrated checking for 401k and IRA, need to check for Traditional/ROTH next
-
 """
-
 
 # Gather user data
 YearlyIncome = int(input("Please enter your yearly income:" ))
@@ -25,17 +23,15 @@ Psuedocode for entering more than one expense (function)
 5. User finally enters no, exit loop
 6. Sums all expenses, at the end displays expense total to the user.
 
+Functionality to calculate meeting a savings goal after an amount of time.
+    1. Ask for savings for a goal?
+    2. Enter the date you want to meet the savings goal.
+    3. Take savings and add each month together until total is met and calculate how many months.
 
-Adding state taxes
- Add a new function, takes in a variable (income)
- applies tax rate through brackets (with contribution deductions)
- sums up total state taxes
- prints total state taxes
 
+Enter error checking for all inputs
 
 '''
-
-
 
 # do error checking for above contrib amounts
 UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
@@ -90,16 +86,6 @@ def Fed_Taxes(TaxableIncome):
             # T1 = (9525 - 0) = 9525 * 0.10
             # TaxesTotal = T1+T2+T3
 
-
-'''
-
-Adding state taxes
- Add a new function, takes in a variable (income)
- applies tax rate through brackets (with contribution deductions)
- sums up total state taxes
- prints total state taxes
-
-'''
 def State_Taxes(TaxableIncome):
     S_MTB1 = 3000
     S_MTB2 = 5000
