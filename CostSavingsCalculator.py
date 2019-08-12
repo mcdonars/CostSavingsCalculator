@@ -23,12 +23,6 @@ Psuedocode for entering more than one expense (function)
 5. User finally enters no, exit loop
 6. Sums all expenses, at the end displays expense total to the user.
 
-Functionality to calculate meeting a savings goal after an amount of time.
-    1. Ask for savings for a goal?
-    2. Enter the date you want to meet the savings goal.
-    3. Take savings and add each month together until total is met and calculate how many months.
-
-
 Enter error checking for all inputs
 
 '''
@@ -151,3 +145,17 @@ print(MonthyContributions * 12)
 #     UserInput = input("Do you have any expenses? (Y or N): ")
 #     if (UserInput == "Y"):
 #         UserItemExpense = input("Enter expense name: ")
+
+
+
+UserSavingsGoal = str(input("Are you saving for something?: "))
+
+if ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
+    UserSavingsGoalAmount = int(input("What is the amount needed?: "))
+    UserGoalAchieved = UserSavingsGoalAmount / (YearlySavings/12)
+    print ("You will have enough saved up in " + str(UserGoalAchieved) + " months " + "(" + str(YearlySavings) + " years)")
+else:
+    pass
+
+
+
