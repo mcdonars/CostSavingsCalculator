@@ -146,16 +146,18 @@ print(MonthyContributions * 12)
 #     if (UserInput == "Y"):
 #         UserItemExpense = input("Enter expense name: ")
 
+#Loop this for so user can use multiple times?
 
+UserSavingsGoal = str(input("Are you saving for something? (Y/N): "))
 
-UserSavingsGoal = str(input("Are you saving for something?: "))
-
-if ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
-    UserSavingsGoalAmount = int(input("What is the amount needed?: "))
-    UserGoalAchieved = UserSavingsGoalAmount / (YearlySavings/12)
-    print ("You will have enough saved up in " + str(UserGoalAchieved) + " months " + "(" + str(YearlySavings) + " years)")
-else:
-    pass
+while ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
+    if ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
+        UserSavingsGoalAmount = int(input("What is the amount needed?: "))
+        UserGoalAchieved = UserSavingsGoalAmount / (YearlySavings/12)
+        print ("You will have enough saved up in " + str(UserGoalAchieved) + " months " + "(" + str(YearlySavings) + " years)")
+    else:
+        pass
+    UserSavingsGoal = str(input("Calculate another savings goal? (Y/N): "))
 
 
 
