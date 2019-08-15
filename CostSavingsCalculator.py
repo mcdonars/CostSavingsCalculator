@@ -5,17 +5,14 @@
     SS and Medicare are not deductable
     401K - Max contribution = 18,500  (Both Traditional and ROTH total)
     IRA - Max contribution = 6,000    (Both Traditional and ROTH total)
-
-Integrated checking for 401k and IRA, need to check for Traditional/ROTH next
 """
 
 # Gather user data
 YearlyIncome = int(input("Please enter your yearly income:" ))
 MonthlyExpenses = int(input("Please enter your monthly expenses: "))
 
-
 '''
-Psuedocode for entering more than one expense (function)
+Psuedocode for entering more than one expense (function with array)
 1. Ask for if user has expenses
 2. User enters expense
 3. Expense is entered into array. (objects?)
@@ -23,7 +20,7 @@ Psuedocode for entering more than one expense (function)
 5. User finally enters no, exit loop
 6. Sums all expenses, at the end displays expense total to the user.
 
-Enter error checking for all inputs
+Enter error checking for all inputs - Regular expressions?
 
 '''
 
@@ -104,9 +101,6 @@ def State_Taxes(TaxableIncome):
         S_T4 = (TaxableIncome - S_MTB3) * S_TRB4
         return S_T4 + (S_MTB3 * S_TRB3) + (S_MTB2 * S_TRB2) + (S_MTB1 * S_TRB1) 
 
-
-
-
 def SS_Med_Taxes(YearlyIncome):
     # Tax Rates:
     SS_TR = 0.062
@@ -114,7 +108,6 @@ def SS_Med_Taxes(YearlyIncome):
     Total_SS_Med_Taxes = (YearlyIncome * SS_TR) + (YearlyIncome * Med_TR)
 
     return Total_SS_Med_Taxes
-
 
 UserPaidTaxes = Fed_Taxes(TaxableIncome) + SS_Med_Taxes(YearlyIncome) + State_Taxes(TaxableIncome)
 EarningsAT = TaxableIncome - UserPaidTaxes
@@ -127,7 +120,6 @@ print(SS_Med_Taxes(YearlyIncome))
 
 print("Your yearly State taxes are: ")
 print(State_Taxes(YearlyIncome))
-
 
 YearlyExpenses = MonthlyExpenses * 12
 print("Your yearly expenses are: " )
@@ -146,8 +138,6 @@ print(MonthyContributions * 12)
 #     if (UserInput == "Y"):
 #         UserItemExpense = input("Enter expense name: ")
 
-#Loop this for so user can use multiple times?
-
 UserSavingsGoal = str(input("Are you saving for something? (Y/N): "))
 
 while ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
@@ -160,4 +150,4 @@ while ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
     UserSavingsGoal = str(input("Calculate another savings goal? (Y/N): "))
 
 
-
+# add functionality to restart program so user can enter another value.
