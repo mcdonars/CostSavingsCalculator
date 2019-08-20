@@ -6,9 +6,9 @@
     401K - Max contribution = 18,500  (Both Traditional and ROTH total)
     IRA - Max contribution = 6,000    (Both Traditional and ROTH total)
 """
+UserContinue = True
 
-Continue = True
-while (Continue == True):
+while (UserContinue == True):
 
     # Gather user data
     YearlyIncome = int(input("Please enter your yearly income:" ))
@@ -147,17 +147,26 @@ while (Continue == True):
         if ((UserSavingsGoal == 'Y') or UserSavingsGoal == 'y'):
             UserSavingsGoalAmount = int(input("What is the amount needed?: "))
             UserGoalAchieved = UserSavingsGoalAmount / (YearlySavings/12)
-            print ("You will have enough saved up in " + str(UserGoalAchieved) + " months " + "(" + str(YearlySavings) + " years)")
+            print ("You will have enough saved up in " + str(UserGoalAchieved) + " months " + "(" + str(UserGoalAchieved/12) + " years)")
         else:
             pass
         UserSavingsGoal = str(input("Calculate another savings goal? (Y/N): "))
 
-UserContinue = str(input("Restart program? (Y/N): "))
+    UserContinue = str(input("Restart program? (Y/N): "))
 
-if (UserContinue != 'Y') or (UserContinue != 'y'):
-    Continue == False
+    if (UserContinue != 'Y') or (UserContinue != 'y'):
+        UserContinue == False
 
 
 
 
 # fix bug with looping always on input (error check) and N input for retirement contributions
+# Program won't loop properly, just ends.
+
+
+'''
+Future Implementations:
+1. Tax deductable health insurance payments (or general expense)
+2. 
+
+'''
