@@ -28,6 +28,8 @@ while (UserContinue == True):
     '''
 
     # do error checking for above contrib amounts
+
+    #bug here when entering N crashes with invalid input
     UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
     if ((UserContributes == "Y") or (UserContributes == "y")):
         boolContinue = False
@@ -152,9 +154,11 @@ while (UserContinue == True):
             pass
         UserSavingsGoal = str(input("Calculate another savings goal? (Y/N): "))
 
-    UserContinue = str(input("Restart program? (Y/N): "))
+    UserInputContinue = str(input("Restart program? (Y/N): "))
 
-    if (UserContinue != 'Y') or (UserContinue != 'y'):
+    if ((UserInputContinue == 'Y') or (UserInputContinue == 'y')):
+        UserContinue == True
+    else:
         UserContinue == False
 
 
@@ -170,3 +174,4 @@ Future Implementations:
 2. 
 
 '''
+        UserContinue == True
