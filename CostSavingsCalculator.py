@@ -27,9 +27,11 @@ while (UserContinue == True):
 
     '''
 
-    # do error checking for above contrib amounts
-
-    #bug here when entering N crashes with invalid input
+    ContribT401k = 0
+    ContribTIRA = 0
+    ContribR401k = 0
+    ContribRIRA = 0
+    
     UserContributes = str(input("Do you contribute to retirement savings? (Y/N): "))
     if ((UserContributes == "Y") or (UserContributes == "y")):
         boolContinue = False
@@ -174,4 +176,4 @@ Future Implementations:
 2. 
 
 '''
-        UserContinue == True
+
